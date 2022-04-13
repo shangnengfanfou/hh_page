@@ -55,7 +55,8 @@ export default {
 }
 
 #header-center {
-  margin: auto;
+  display: flex;
+  flex-shrink: 1;
 }
 
 #header-right {
