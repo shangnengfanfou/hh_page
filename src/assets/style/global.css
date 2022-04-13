@@ -1,0 +1,11 @@
+body {
+  margin: 1px;
+  background-color: #f3f3f3;
+}
+
+a{ 
+  color:#333;
+  text-decoration:none;
+}
+
+a:hover{ color:#00F}
