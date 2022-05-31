@@ -1,31 +1,22 @@
 <template>
   <div>
     <!-- START WELCOME SECTION -->
-
     <section>
-      <!-- <div>
-        <transition name="fade">
-          <img :src="data[0]" v-if="showFlag[0] === true" key="img1">
-        </transition>
-      </div>
-       <div>
-        <transition name="fade">
-          <img :src="data[1]" v-if="showFlag[1]  === true" key="img2">
-        </transition>
-      </div>
-      <div>
-        <transition name="fade">
-          <img :src="data[1]" v-if="showFlag[2]  === true" key="img3">
-        </transition>
-      </div> -->
       <div v-for="(item, index) in data" :key="index">
         <transition name="slide-fade">
           <img :src="item.img" v-if="index === currentIndex" />
         </transition>
       </div>
-      <h3 style="display:inline;">我是</h3><h2 style="display:inline;">白杨亦萧萧</h2>
-      <p>web开发、全栈探索者</p>
+      <div class="welcome-section">
+        <div>
+          <h3 style="display:inline;">我是</h3><h2 style="display:inline;">白杨亦萧萧</h2>
+          <p>web开发、全栈探索者</p>
+        </div>
+      </div>
     </section>
+    <content>
+      <div class=""></div>
+    </content>
   </div>
 </template>
 
@@ -42,15 +33,23 @@ export default {
 
         {
           id: 1,
-          img: require('../assets/images/three-leaf-clover.jpg')
+          img: require('../assets/images/p3.jpg')
         },
         {
           id: 2,
-          img: require('../assets/images/unique-sunflowers.jpg')
+          img: require('../assets/images/p2.jpg')
         },
         {
           id: 3,
-          img: require('../assets/images/montain.jpg')
+          img: require('../assets/images/p1.jpg')
+        },
+        {
+          id: 4,
+          img: require('../assets/images/p5.jpg')
+        },
+        {
+          id: 5,
+          img: require('../assets/images/p4.jpg')
         }
       ],
       currentIndex: 0,
