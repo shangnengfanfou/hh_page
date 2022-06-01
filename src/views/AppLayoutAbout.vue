@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="about">
     <!-- START WELCOME SECTION -->
     <section>
       <div v-for="(item, index) in data" :key="index">
@@ -9,13 +9,26 @@
       </div>
       <div class="welcome-section">
         <div>
-          <h3 style="display:inline;">我是</h3><h2 style="display:inline;">白杨亦萧萧</h2>
+          <h3 style="display:inline;">我是&nbsp;</h3><h2 style="display:inline;">白杨亦萧萧</h2>
           <p>web开发、全栈探索者</p>
         </div>
       </div>
     </section>
     <content>
-      <div class=""></div>
+      <h2 class="content-header">
+        最新文章
+      </h2>
+      <div>
+        <div v-for="(item, index) in article" :key="index">
+          <a :href="item.url" target="_blank">
+            <img :src="item.img" :alt="item.desc" />
+            <p>{{item.desc}}</p>
+          </a>
+        </div>
+      </div>
+      <router-link to="/" class="header-item button-all button">
+        全部文章&nbsp;&gt;
+      </router-link>
     </content>
   </div>
 </template>
@@ -30,7 +43,6 @@ export default {
   data() {
     return {
       data: [
-
         {
           id: 1,
           img: require('../assets/images/p3.jpg')
@@ -54,6 +66,44 @@ export default {
       ],
       currentIndex: 0,
       timer: null,
+      article: [
+        {
+          id: 1,
+          img: require('../assets/images/article/article1.jpg'),
+          desc: 'goku',
+          url: 'http://www.baidu.com'
+        },
+        {
+          id: 2,
+          img: require('../assets/images/article/article2.jpg'),
+          desc: 'rufi',
+          url: 'http://www.baidu.com'
+        },
+        {
+          id: 3,
+          img: require('../assets/images/article/article3.jpg'),
+          desc: 'goku-s4',
+          url: 'http://www.baidu.com'
+        },
+        {
+          id: 4,
+          img: require('../assets/images/article/article4.jpg'),
+          desc: 'pikachu',
+          url: 'http://www.baidu.com'
+        },
+        {
+          id: 5,
+          img: require('../assets/images/article/article5.jpg'),
+          desc: 'itachi',
+          url: 'http://www.baidu.com'
+        },
+        {
+          id: 6,
+          img: require('../assets/images/article/article6.jpg'),
+          desc: 'death',
+          url: 'http://www.baidu.com'
+        }
+      ]
     }
   },
   created() {

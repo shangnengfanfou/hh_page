@@ -1,7 +1,9 @@
-
+.about {
+    background-color: #45567D;
+}
 section {
     width: 100%;
-    height: 95vh;
+    height: 700px;
     position: relative;
     
     > div {
@@ -17,6 +19,16 @@ section {
             height: 100%;
             object-fit: cover;
             flex: 1;
+        }
+
+        h2 {
+            font: 4.5rem sans-serif;
+        }
+        h3 {
+            font: 3rem sans-serif;
+        }
+        p {
+            font-size: 2.2rem;
         }
         
         .slide-fade-enter-active {
@@ -41,16 +53,54 @@ section {
 
 content {
     width: 100%;
-    height: 1000px;
-    // position: relative;
-    background-color: rgb(182, 180, 206);
+    .content-header {
+        max-width: 40%;
+        margin: 2rem auto 4rem auto;
+        font-size: 3.2rem;
+        border-bottom: 0.2rem solid rgb(182, 180, 206);
+        color: #fff
+    }
 
     > div {
-        margin: 20px;
-        border: 10px solid rgb(182, 180, 206);
+        margin: 20px auto;
+        border: 5px solid rgb(182, 180, 206);
         padding: 20px;
-        height: 1000px;
-        background-color: rgb(211, 238, 222);
+        // height: 1000px;
+        background-color: #45567D;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-gap: 4rem;
+        max-width: 1280px;
+
+
+        > div {
+            background-color: #303841;
+            border: 2px solid rgb(202, 147, 207);
+
+            p {
+                font-size: 1.5rem;
+                color: #FFFFFF;
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .button-all {
+        font-size: 2rem;
+        background: #303841;
+        transition: background-color 0.3s ease-out;
+        color: #fff;
+        text-align: center;
+        &:hover { 
+            background-color: rgb(216, 52, 93);
+        }
+    }
+    .button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        margin-bottom: 100px;
     }
 }
 
