@@ -31,7 +31,8 @@ export default {
 #header {
   background: rgb(227, 233, 235);
   padding: 3px;
-  max-height: 2.5rem;
+  max-height: 50px;
+  min-height: 2.5rem;
   display: flex;
   justify-content: center; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
@@ -39,8 +40,6 @@ export default {
 
 #header-left {
   background: rgb(227, 233, 235);
-  padding: 3px;
-  height: 2rem;
   display: flex;
   justify-content: left; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
@@ -50,16 +49,13 @@ export default {
 #header-left p {
   text-align: center;
   margin: auto;
-  padding-top: .2rem;
-  min-width: 6rem;
-  height: 2rem;
+  min-width: 30px;
 }
 
 #logo {
-  width: 2rem;
-  min-width: 1.5rem;
-  height: 2rem;
-  border-radius: 1rem;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
 }
 
 #header-center {
@@ -70,8 +66,8 @@ export default {
 #header-right {
   margin-left: auto; /* 设置向右对对齐 */
   /* justify-content: flex-end; */
-  min-width: 3rem;
-  padding: 30px
+  min-width: 20px;
+  padding: 0 2rem;
 }
 
 
@@ -85,8 +81,7 @@ export default {
 .header-item {
   padding-right: 50px;
   /* line-height: 30px; */
-  min-width: 2rem;
-  min-height: 1rem;
+  min-width: 30px;
   text-decoration:none;
   justify-content: center; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
