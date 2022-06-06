@@ -2,13 +2,13 @@
   <div id="header">
     <a href="/" rel="start" id="header-left">
       <img src="../assets/images/avatar.png" alt="白杨亦萧萧" id="logo">
-      &nbsp; 白杨亦萧萧
+      <p>&nbsp; 白杨亦萧萧</p>
     </a>
     <div id="header-center">
-      <router-link to="/" class="header-item">标签墙</router-link>
-      <router-link to="/about" class="header-item">留言板</router-link>
-      <router-link to="/contacts" class="header-item">代码仓库</router-link>
-      <router-link to="/about" class="header-item">AboutMe</router-link>
+      <router-link to="/" class="header-item">首页</router-link>
+      <router-link to="/notes" class="header-item">个人笔记</router-link>
+      <router-link to="/bookmark" class="header-item">书签</router-link>
+      <router-link to="/info" class="header-item">我的信息</router-link>
     </div>
     <div id="header-right">
       <a href="/platform">
@@ -31,7 +31,7 @@ export default {
 #header {
   background: rgb(227, 233, 235);
   padding: 3px;
-  height: 30px;
+  max-height: 2.5rem;
   display: flex;
   justify-content: center; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
@@ -40,18 +40,26 @@ export default {
 #header-left {
   background: rgb(227, 233, 235);
   padding: 3px;
-  height: 30px;
+  height: 2rem;
   display: flex;
-  text-decoration:none;
-  justify-content: center; /* 水平居中 */
+  justify-content: left; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
-  width: 300px;
+  margin: 0 10rem 0 4rem;
+}
+
+#header-left p {
+  text-align: center;
+  margin: auto;
+  padding-top: .2rem;
+  min-width: 6rem;
+  height: 2rem;
 }
 
 #logo {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
+  width: 2rem;
+  min-width: 1.5rem;
+  height: 2rem;
+  border-radius: 1rem;
 }
 
 #header-center {
@@ -61,7 +69,8 @@ export default {
 
 #header-right {
   margin-left: auto; /* 设置向右对对齐 */
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
+  min-width: 3rem;
   padding: 30px
 }
 
@@ -74,10 +83,13 @@ export default {
   color: #ccda54
 }
 .header-item {
-  padding: 50px;
-  line-height: 30px; /* 设置垂直居中 */
+  padding-right: 50px;
+  /* line-height: 30px; */
+  min-width: 2rem;
+  min-height: 1rem;
   text-decoration:none;
   justify-content: center; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
+  font-size: 1rem;
 }
 </style>

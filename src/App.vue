@@ -31,4 +31,7 @@ export default {
     height: 5rem;
     background-color: green;
 }
+.app-layout {
+  max-width: 1280px;
+}
 </style>

@@ -68,10 +68,10 @@
           <div class="contact-msg">
             <h2>
               <router-link to="/contacts" class="contact-info-link">
-                求职-我的简历请看&nbsp;&gt;
+                交流&求职-我的简历请点&nbsp;&gt;
               </router-link>
             </h2>
-            <p>计划于下半年更换工作，意向地点深圳、武汉等，如果觉得我满足贵司的要求，请联系我吧。</p>
+            <p>如果想交流技术或者交朋友，请按照下面的方式联系我。同时计划于下半年更换工作，意向地点深圳、武汉等，如果觉得我满足贵司的要求，也可通过下面的方式联系我。</p>
             <ul>
               <li>
                 <a href="mailto:haoqian.mail@qq.com">
@@ -79,7 +79,7 @@
                 </a>
               </li>
               <li>
-                我的微信（base64处理后）：aGFvcV8yMDIw
+                我的微信（base64处理后）：aGFvcV8yMDIw 申请注明原因
               </li>
               <li>
                 我的电话（aes-128-ecb加密后）：

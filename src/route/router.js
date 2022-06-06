@@ -7,33 +7,29 @@ const routes = [
   { 
     path: '/',
     name: 'Home',
-    // component: () => import('@/components/Home.vue'),
-    meta: {
-      layout: 'AppLayoutHome'
-    }
-  },
-  { 
-    path: '/about',
-    name: 'About',
-    // component: () => import('@/components/About.vue'),
     meta: {
       layout: 'AppLayoutAbout'
     }
   },
   { 
-    path: '/contacts',
-    name: 'Contacts',
-    // component: () => import('@/components/Contacts.vue'),
+    path: '/notes',
+    name: 'Notes',
     meta: {
-      layout: 'AppLayoutContacts'
+      layout: 'AppLayoutNotes'
     }
   },
   { 
-    path: '/blog',
-    name: 'Blog',
-    // component: () => import('@/components/Blog.vue'),
+    path: '/bookmark',
+    name: 'Bookmark',
     meta: {
-      layout: 'AppLayoutBlog'
+      layout: 'AppLayoutBookmark'
+    }
+  },
+  { 
+    path: '/info',
+    name: 'Info',
+    meta: {
+      layout: 'AppLayoutInfo'
     }
   }
 ]

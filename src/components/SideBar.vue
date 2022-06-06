@@ -6,58 +6,26 @@
       </div>
       <div>
         <h3 style="margin:2px">白杨亦萧萧</h3>
-        <p style="font-size:10px;margin:2px">富强、民主、和谐</p>
+        <p style="font-size:10px;margin:2px">但行好事 莫问前程</p>
       </div>
       <div class="sidebar-info-content">
-        <div style="margin:8px">
-          <p style="font-size:15px;margin:5px">富强</p>
-          <p style="font-size:25px;margin:2px">300</p>
-        </div>
-        <div style="margin:8px">
-          <p style="font-size:15px;margin:5px">民主</p>
-          <p style="font-size:25px;margin:2px">500</p>
-        </div>
-        <div style="margin:8px">
-          <p style="font-size:15px;margin:5px">和谐</p>
-          <p style="font-size:25px;margin:2px">200W</p>
+        <div v-for="(item, index) in siteInfo" :key="index" >
+          <h4>{{item.name}}</h4>
+          <p>{{item.count}}</p>
         </div>
       </div>
     </div>
     <div class="sidebar-info" style="align-items:flex-start">
       <div class="sidebar-info-content2">
         <div class="sidebar-info-content2-list">
-          <p style="font-size:12px;margin:5px;">白杨亦萧萧</p>
+          <p style="font-size:12px;margin:5px 5px 15px 5px;">白杨亦萧萧-文章分类</p>
         </div>
-        <div class="sidebar-info-content2-list">
-          <p style="font-size:15px;margin:5px">富强</p>
-          <p style="font-size:25px;margin:2px">300</p>
-        </div>
-        <div class="sidebar-info-content2-list">
-          <p style="font-size:15px;margin:5px">民主</p>
-          <p style="font-size:25px;margin:2px">500</p>
-        </div>
-        <div class="sidebar-info-content2-list">
-          <p style="font-size:15px;margin:5px">和谐</p>
-          <p style="font-size:25px;margin:2px">200W</p>
-        </div>
-        <div class="sidebar-info-content2-list">
-          <p style="font-size:15px;margin:5px">文明</p>
-          <p style="font-size:25px;margin:2px">200</p>
-        </div>
-        <div class="sidebar-info-content2-list">
-          <p style="font-size:15px;margin:5px">公正</p>
-          <p style="font-size:25px;margin:2px">3220W</p>
-        </div>
-        <div class="sidebar-info-content2-list">
-          <p style="font-size:15px;margin:5px">法制</p>
-          <p style="font-size:25px;margin:2px">2300W</p>
-        </div>
+        <router-link v-for="(item, index) in articleInfo" :key="index" :to="'/#/'+item.type" class="sidebar-info-content2-list">
+          <h4 style="font-size:15px;margin:5px 5px 5px 15px;">{{item.name}}</h4>
+          <p>{{item.count}}</p>
+        </router-link>
       </div>      
     </div>
-    <!-- <div class="sidebar-info">
-    </div>
-    <div class="sidebar-info">
-    </div> -->
   </div>
 </template>
 
@@ -67,6 +35,67 @@ export default {
   name: "SideBar",
   data() {
     return {
+      siteInfo: [
+        {
+          id: 1,
+          name: '总文章',
+          count: 100
+        },
+        {
+          id: 2,
+          name: '最新文章',
+          count: 10
+        },
+        {
+          id: 3,
+          name: '浏览量',
+          count: '10w'
+        }
+      ],
+      articleInfo: [
+        {
+          id: 1,
+          type: 'frontend',
+          name: '前端开发笔记',
+          count: 10
+        },
+        {
+          id: 2,
+          type: 'backend',
+          name: '后端开发笔记-nodejs',
+          count: 10
+        },
+        {
+          id: 3,
+          type: 'database',
+          name: '数据库',
+          count: 10
+        },
+        {
+          id: 4,
+          type: 'redis',
+          name: 'redis',
+          count: 10
+        },
+        {
+          id: 5,
+          type: 'algorithm',
+          name: '算法笔记',
+          count: 10
+        },
+        {
+          id: 6,
+          type: 'operation',
+          name: '运维相关',
+          count: 10
+        },
+        {
+          id: 7,
+          type: 'other',
+          name: '其他',
+          count: 10
+        }
+      ]
     }
   }
 }
@@ -81,10 +110,9 @@ export default {
     align-items: center;     /* 垂直居中 */
 }
 .sidebar-info {
-    width: 250px;
-    height: 250px;
-    padding: 10px;
-    margin: 20px;
+    min-width: 15rem;
+    padding: 1rem;
+    margin: 1rem;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -92,14 +120,18 @@ export default {
     align-items: center;     /* 垂直居中 */
 }
 .sidebar-info-logo {
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 3rem;
 }
 .sidebar-info-content {
   display: flex;
-  justify-content: center; /* 水平居中 */
+  justify-content: space-between; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
+  padding: 1rem;
+}
+.sidebar-info-content h4 {
+  padding: 0 .5rem;
 }
 .sidebar-info-content2 {
   display: flex;
@@ -115,5 +147,10 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   text-align: flex-start;
+}
+.sidebar-info-content2-list p {
+  background-color: #F7F7F7;  
+  font: 1rem sans-serif;
+  margin: 2px;
 }
 </style>

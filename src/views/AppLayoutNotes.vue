@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="notes">
     <div class="line1">
       <Content />
     </div>
@@ -13,7 +13,7 @@
 import SideBar from "@/components/SideBar"
 import Content from "@/components/Content"
 export default {
-  name: 'AppLayoutHome',
+  name: 'AppLayoutNotes',
   components: {
     SideBar,
     Content
@@ -22,8 +22,10 @@ export default {
 </script>
 
 <style scoped> 
-  .home {
+  .notes {
     min-height: 800px;
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;

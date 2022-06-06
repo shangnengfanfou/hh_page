@@ -5,11 +5,9 @@
 </template>
 
 <script>
-// import AppLayoutLinks from "@/components/layouts/AppLayoutLinks"
 export default {
-  name: 'AppLayoutBlog',
+  name: 'AppLayoutInfo',
   components: {
-    // AppLayoutLinks
   }
 }
 </script>

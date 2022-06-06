@@ -3,23 +3,23 @@
     <a href="#.">
       <div id="content">
         <div class="card-image">
-            <img src="../assets/images/avatar.png"
-            alt="gokong" />
+            <img :src="data.pic"
+            :alt="data.title" />
         </div>
         <div class="card-body">
             <div class="card-date">
                 <time>
-                    2022年 04月 01日
+                    {{data.time}}
                 </time>
             </div>
             <div class="card-title">
                 <h3>
-                    社会主义核心价值观
+                    {{data.title}}
                 </h3>
             </div>
-            <div class="card-exceprt" v-if="contentVisible">
+            <div class="card-excerpt" v-if="contentVisible">
                 <p>
-                  党的十八大提出，倡导富强、民主、文明、和谐，倡导自由、平等、公正、法治，倡导爱国、敬业、诚信、友善，积极培育和践行社会主义核心价值观。富强、民主、文明、和谐是国家层面的价值目标，自由、平等、公正、法治是社会层面的价值取向，爱国、敬业、诚信、友善是公民个人层面的价值准则，这24个字是社会主义核心价值观的基本内容。
+                  {{data.content}}
                 </p>
             </div>
         </div>
@@ -34,8 +34,24 @@ export default {
   name: "ContentCard",
   data() {
     return {
-      contentVisible: true,
     }
+  },
+  props: {
+      data: {
+          type: Object,
+          default: function () {
+              return {
+                  pic: "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a6afead4d06476ea5eff748cc9a5dc2~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?",
+                  time: '2022年 04月 01日',
+                  title: '程序员常用网站',
+                  content: '2022你需要了解的程序员网站如下：https://www.google.com、https://www.bing.cn、https://www.stackoverflow.com、https://www.baidu.com'
+              }
+          }
+      },
+      contentVisible: {
+          type: Boolean,
+          default: false
+      }
   }
 }
 </script>
@@ -47,7 +63,7 @@ export default {
     flex-wrap: nowrap;
     flex-direction: row;
     background-color:#ffffff;
-    box-shadow:0px 5px 20px rgb(156, 113, 113);
+    /* box-shadow:0px 5px 20px rgb(156, 113, 113); */
 }
 
 #content a {
