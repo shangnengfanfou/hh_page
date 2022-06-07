@@ -68,11 +68,53 @@
       <hr>
       <p>热爱技术、持续进步，不断朝让自己生活的更好的目标前进</p>
       <div class="experience-detail">
-        <div class="experience-1"></div>
-        <div class="experience-2"></div>
-        <div class="experience-3"></div>
-        <div class="experience-4"></div>
-        <div class="experience-5"></div>
+        <div class="experience experience-line-1">
+          <img src="../assets/images/badge.png" alt="武汉理工">
+          <div class="caption">
+            <h3>武汉理工大学</h3>
+            <p>信息工程专业</p>
+            <p>2012.09-2016.07</p>
+            <p>接触互联网，学习编程，了解js，为日后工作走进nodejs的深坑做了铺垫...</p>
+          </div>
+        </div>
+        <div class="experience experience-line-1">
+          <img src="../assets/images/badge.png" alt="武汉理工">
+          <div class="caption">
+            <h3>武汉理工大学</h3>
+            <p>信息工程专业</p>
+            <p>2012.09-2016.07</p>
+            <p>接触互联网，学习编程，了解js，为日后工作走进nodejs的深坑做了铺垫...</p>
+          </div>
+        </div>
+      </div>
+      <div class="experience-detail">
+        <div class="experience">
+          <img src="../assets/images/badge.png" alt="武汉理工">
+          <div class="caption">
+            <h3>武汉理工大学</h3>
+            <p>信息工程专业</p>
+            <p>2012.09-2016.07</p>
+            <p>接触互联网，学习编程，了解js，为日后工作走进nodejs的深坑做了铺垫...</p>
+          </div>
+        </div>
+        <div class="experience">
+          <img src="../assets/images/badge.png" alt="武汉理工">
+          <div class="caption">
+            <h3>武汉理工大学</h3>
+            <p>信息工程专业</p>
+            <p>2012.09-2016.07</p>
+            <p>接触互联网，学习编程，了解js，为日后工作走进nodejs的深坑做了铺垫...</p>
+          </div>
+        </div>
+        <div class="experience">
+          <img src="../assets/images/badge.png" alt="武汉理工">
+          <div class="caption">
+            <h3>武汉理工大学</h3>
+            <p>信息工程专业</p>
+            <p>2012.09-2016.07</p>
+            <p>接触互联网，学习编程，了解js，为日后工作走进nodejs的深坑做了铺垫...</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
