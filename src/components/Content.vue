@@ -119,6 +119,7 @@ export default {
   flex: 2;
 }
 .row2 {
+  min-width: 300px;
   width: 19rem;
   flex: 1;
   margin: 1rem 1rem;
