@@ -1,0 +1,140 @@
+
+#base-info-title {
+  padding: 0 2rem;
+  background: linear-gradient(180deg,#6f7275 0,#31353a);
+}
+
+#base-info {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  flex-wrap: wrap;
+  text-align: center;
+  padding-bottom: 50px;
+
+  > div {
+    padding: 0 50px 20px 50px;
+    min-width: 300px;
+    i.fa{
+      font-size: 60px;
+      margin-bottom: 20px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      color: #aaa;
+      background: #474b4f;
+      padding: 30px 0;
+      transform: scale(1);
+      transition: all 0.5s ease-out;
+      &:hover {
+        color: #c1a533;
+        transform: scale(1.2);
+      }
+    }
+    > h4 {
+      color: #f4d03f;
+      font-size: 18px;
+      margin: 0;
+    }
+    > p {
+      // text-align: left;
+      color: #aaa;
+      font-family: microsoft yahei,sans-serif;
+    }
+    a {
+      color: #d9d5d5;
+      font-weight: 500;
+    }
+  }
+
+}
+
+#experience {
+  background: linear-gradient(180deg,#fff 0,#ccc);
+  > h2 {
+    color: #555;
+  }
+  > hr {
+    margin-bottom: 10px;
+  }
+  > p {
+    padding-bottom: 50px;
+    font-size: 1.5rem;
+    font-family: microsoft yahei,sans-serif;
+  }
+  .experience-detail {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-areas:
+      "experience1 experience1 experience1 experience2 experience2 experience2"
+      "experience3 experience3 experience4 experience4 experience5 experience5";
+    background-color: #fff;
+    color: #444;
+    padding: 0 50px 20px 50px;
+    justify-items: center;
+
+    .experience-1 {
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      font-size: 150%;
+      grid-area: experience1;
+      // width: 500px;
+    }
+    .experience-2 {
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      font-size: 150%;
+      grid-area: experience2;
+      // width: 500px;
+    }
+    .experience-3 {
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      font-size: 150%;
+      grid-area: experience3;
+      // width: 500px;
+    }
+    .experience-4 {
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      font-size: 150%;
+      grid-area: experience4;
+      // width: 500px;
+    }
+    .experience-5 {
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      font-size: 150%;
+      grid-area: experience5;
+      // width: 500px;
+    }
+  }
+}
+
+h2 {
+  font-weight: 400;
+  font: 3em sans-serif;
+  margin: 0;
+  padding: 5rem 0 2rem 0;
+  color: #ddd;
+  strong {
+    font-weight: 700;
+  }
+}
+hr {
+  background: #c1a533;
+  height: 4px;
+  width: 5%;
+  margin-bottom: 50px;
+}

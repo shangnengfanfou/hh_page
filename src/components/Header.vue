@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #header {
   background: rgb(227, 233, 235);
   padding: 3px;
@@ -53,9 +53,11 @@ export default {
 }
 
 #logo {
-  min-width: .5px;
-  height: .5px;
-  border-radius: .25px;
+  width: 1.6rem;
+  min-width: 20px;
+  height: 1.6rem;
+  min-height: 20px;
+  border-radius: Max(.8rem, 10px);
 }
 
 #header-center {

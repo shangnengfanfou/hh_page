@@ -8,4 +8,17 @@ a{
   text-decoration:none;
 }
 
-a:hover{ color:#00F}
+a:hover{ color:rgb(69, 168, 119)}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
