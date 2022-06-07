@@ -118,11 +118,11 @@ export default {
     color: #777;
 }
 .card-body h3 {
-    margin: 5px 5px;
+    margin: .2rem .2rem;
 }
 .card-body p {
-    max-height: 120px;
-    margin: 5px 5px;
+    max-height: 3.5rem;
+    margin: .2rem .2rem;
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 5;

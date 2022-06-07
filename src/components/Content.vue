@@ -113,27 +113,27 @@ export default {
   flex-direction: row;
 }
 .row1 {
-  min-width: 600px;
+  min-width: 300px;
+  width: 38rem;
   max-width: 70%;
-  flex: 1;
+  flex: 2;
 }
 .row2 {
-  min-width: 300px;
+  width: 19rem;
   flex: 1;
-  margin: 20px 50px 20px 50px;
+  margin: 1rem 1rem;
   background-color: rgb(248, 248, 248);
 }
 .content-visited {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 1.5rem;
 }
 .row1-resize {
-  margin: 30px 20px;
-  border: 2px;
+  margin: 1.5rem 1.5rem;
 }
 .row2-resize {
-  margin: 5px 20px;
+  margin: .5rem 1.5rem;
   border: none;
 }
 </style>

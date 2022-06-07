@@ -49,13 +49,13 @@ export default {
 #header-left p {
   text-align: center;
   margin: auto;
-  min-width: 30px;
+  min-width: .8px;
 }
 
 #logo {
-  min-width: 20px;
-  height: 20px;
-  border-radius: 10px;
+  min-width: .5px;
+  height: .5px;
+  border-radius: .25px;
 }
 
 #header-center {
@@ -66,8 +66,8 @@ export default {
 #header-right {
   margin-left: auto; /* 设置向右对对齐 */
   /* justify-content: flex-end; */
-  min-width: 20px;
-  padding: 0 2rem;
+  min-width: .5rem;
+  padding: 0 .5rem;
 }
 
 
@@ -79,9 +79,9 @@ export default {
   color: #ccda54
 }
 .header-item {
-  padding-right: 50px;
+  padding-right: 1.3rem;
   /* line-height: 30px; */
-  min-width: 30px;
+  min-width: .9rem;
   text-decoration:none;
   justify-content: center; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
