@@ -15,6 +15,8 @@
   > div {
     padding: 0 50px 20px 50px;
     min-width: 300px;
+    height: 600px;
+    max-width: 25%;
     i.fa{
       font-size: 60px;
       margin-bottom: 20px;
@@ -40,6 +42,7 @@
       // text-align: left;
       color: #aaa;
       font-family: microsoft yahei,sans-serif;
+      word-wrap: break-word;
     }
     a {
       color: #d9d5d5;
