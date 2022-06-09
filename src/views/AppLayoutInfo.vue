@@ -117,7 +117,12 @@
         </div>
       </div>
     </div>
-    <Carousel />
+    <div class="carousel">
+      <div class="carousel-item">
+        <Carousel />
+      </div>
+    </div>
+
   </div>
 </template>
 

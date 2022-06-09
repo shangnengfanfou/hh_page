@@ -1,11 +1,14 @@
 <template>
-	<carousel-3d :width="200" :height="300" :space='280' :perspective='0' 
-    :animationSpeed='2000' :autoplay="true" :autoplay-timeout="2000" 
-    :display="slides.length" :controls-visible="true" 
+	<carousel-3d :width="650" :height="350" :space='500' :perspective='15' 
+    :animationSpeed='300' :autoplay="true" :autoplay-timeout="3000" 
+    :display="3" :controls-visible="true" :border="0"
     :controls-prev-html="'&#10092; '" :controls-next-html="'&#10093;'" 
-    :controls-width="30" :controls-height="60" :clickable="true">
-    <slide v-for="(slide, i) in slides" :index="i" :key="i">
-      <img :src="slide.img"/>
+    :controls-width="30" :controls-height="60" :clickable="true"
+    @before-slide-change="onBeforeSlideChange">
+    <slide v-for="(slide, i) in slides" :index="i" :key="i" style="background-color:rgba(0,0,0,0);">
+      <div class="skill-info" :style="{'opacity': i==index ? 1: 0.6, 'background-color':i==index ? '#99A9BF': '#D8E0E9'}">
+        <p style="font-size:50px">{{i}}</p>
+      </div>
     </slide>
 	</carousel-3d>
 </template>
@@ -42,12 +45,21 @@ export default {
           id: 5,
           img: require('../assets/images/p4.jpg')
         }
-      ]
+      ],
+      activeColor: '#99A9BF',
+      index: 1
 		}
+  },
+  methods: {
+    onBeforeSlideChange(index) {
+      console.log('@onBeforeSlideChange Callback Triggered', 'Slide Index ' + index)
+      // this.activeColor = '#d3dce6'
+      this.index = index
+    },
   }
 }
 </script>
 
 <style scoped lang="scss"> 
-// @import '../assets/style/scss/carousel.scss'
+@import '../assets/style/scss/carousel.scss'
 </style>

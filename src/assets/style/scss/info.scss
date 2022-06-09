@@ -80,7 +80,7 @@
 
     .experience {
       color: #fff;
-      margin: 20px;
+      margin: 20px Min(20px, 1.5rem);
       font-size: 150%;
       width: 300px;
       // max-width: 400px;
@@ -115,8 +115,19 @@
     }
 
     .experience-line-1 {
-      margin: 20px 60px;
+      margin: 20px Min(60px, 3rem);
     }
+  }
+}
+
+.carousel {
+  background: linear-gradient(180deg,#fff 0,#47729e);
+  margin: 0;
+  padding: 50px;
+  .carousel-item{
+    width: 80%;
+    min-width: 300px;
+    margin: 50px auto;
   }
 }
 
