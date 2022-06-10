@@ -15,7 +15,7 @@
   > div {
     padding: 0 50px 20px 50px;
     min-width: 300px;
-    height: 600px;
+    min-height: 350px;
     max-width: 25%;
     i.fa{
       font-size: 60px;
@@ -120,14 +120,120 @@
   }
 }
 
-.carousel {
+.stack {
   background: linear-gradient(180deg,#fff 0,#47729e);
   margin: 0;
-  padding: 50px;
+  padding: 0 50px 50px 50px;
+
+  > h2 {
+    color: #555;
+    font-size: 30px;
+  }
+  > p {
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-family: microsoft yahei,sans-serif;
+    word-wrap: break-word;
+  }
   .carousel-item{
     width: 80%;
     min-width: 300px;
-    margin: 50px auto;
+    margin: auto;
+  }
+}
+
+#project {
+  background: linear-gradient(180deg,#e9f3ec 0,#4eb75b);
+  > h2 {
+    color: #555;
+    font-size: 30px;
+  }
+  > hr {
+    margin-bottom: 10px;
+  }
+  > p {
+    font-size: 20px;
+    font-family: microsoft yahei,sans-serif;
+    word-wrap: break-word;
+    margin-bottom: 0;
+  }
+  i.fa {
+    font-size: 20px;
+    padding: 5px;
+    color: #f4d03f;
+  }
+  .project-items {
+    display: flex;
+    color: #444;
+    padding: 0 50px 20px 50px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-wrap: wrap;
+    max-width: 1200px;
+
+    .pro-item {
+      color: #fff;
+      margin: 20px Min(20px, 1.5rem);
+      font-size: 150%;
+      min-width: 300px;
+      max-width: 400px;
+      background-color: #fff;
+      border: .5px;
+      border-radius: 5px;
+      transition: all .8s;
+      padding: 10px 10px 50px 10px;
+
+      &:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+        transform: translate3d(0, -2px, 0);
+      }
+      h3 {
+        color: #000;
+        font-weight: 500;
+        line-height: 1.1;
+        font-size: 21px;
+        margin: 10px;
+      }
+      h4 {
+        color: #000;
+        font-weight: 200;
+        font-size: 18px;
+        margin: 10px;
+      }
+      span {
+        background-color: #f56c6c;
+        border-color: #f56c6c;
+        color: color;
+        margin: 1.5px 1px;
+        height: 20px;
+        padding: 0 5px;
+        display: inline-block;
+        text-align: center;
+        font-size: 12px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 4px;
+      }
+      .desc {
+        padding: 10px 10px;
+        color: #000;
+        text-align: left;
+        font-size: 16px;
+        color: #5BC0DE;
+        font-family: microsoft yahei,sans-serif;
+      }
+      p {
+        text-align: left;
+        margin: 0;
+        padding: 10px 15px 5px 10px;
+        color: #000;
+        font-weight: 500;
+        line-height: 1.1;
+        font-size: 14px;
+        font-family: microsoft yahei,sans-serif;
+      }
+    }
   }
 }
 

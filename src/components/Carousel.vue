@@ -1,13 +1,16 @@
 <template>
 	<carousel-3d :width="650" :height="350" :space='500' :perspective='15' 
-    :animationSpeed='300' :autoplay="true" :autoplay-timeout="3000" 
+    :animationSpeed='500' :autoplay="true" :autoplay-timeout="5000" 
     :display="3" :controls-visible="true" :border="0"
     :controls-prev-html="'&#10092; '" :controls-next-html="'&#10093;'" 
     :controls-width="30" :controls-height="60" :clickable="true"
     @before-slide-change="onBeforeSlideChange">
     <slide v-for="(slide, i) in slides" :index="i" :key="i" style="background-color:rgba(0,0,0,0);">
       <div class="skill-info" :style="{'opacity': i==index ? 1: 0.6, 'background-color':i==index ? '#99A9BF': '#D8E0E9'}">
-        <p style="font-size:50px">{{i}}</p>
+        <h4>{{slide.skillDesc}}</h4>
+        <div>
+          <span v-for="(detail, index) in slide.skillDetails" :key="index" >{{detail}}</span>
+        </div>
       </div>
     </slide>
 	</carousel-3d>
@@ -27,23 +30,33 @@ export default {
 			slides: [
         {
           id: 1,
-          img: require('../assets/images/p3.jpg')
+          skillDesc: '前端技术',
+          skillDetails: ['html', 'scss', 'vuejs', 'element-ui', 'ssr', 'es5', 'es6']
         },
         {
           id: 2,
-          img: require('../assets/images/p2.jpg')
+          skillDesc: 'nodejs开发',
+          skillDetails: ['eggjs', 'koa2', 'express', 'joi', 'class-validator', 'child_process', 'sequlize', 'typeorm']
         },
         {
           id: 3,
-          img: require('../assets/images/p1.jpg')
+          skillDesc: 'go后端',
+          skillDetails: ['网络编程', 'gorm', 'echo', '学习中']
         },
         {
           id: 4,
-          img: require('../assets/images/p5.jpg')
+          skillDesc: '数据库相关',
+          skillDetails: ['mysql', 'mongodb', 'redis', '表设计', '索引优化', '性能优化']
         },
         {
           id: 5,
-          img: require('../assets/images/p4.jpg')
+          skillDesc: '微服务&虚拟化技术',
+          skillDetails: ['docker', 'kubernetes', 'deployment/service/pod', 'kong网关', 'grpc', 'apollo配置中心']
+        },
+        {
+          id: 6,
+          skillDesc: '其他',
+          skillDetails: ['nginx', 'openresty', 'rabbitmq', '领域驱动设计', 'linux常用命令', '简单shell', 'jenkins']
         }
       ],
       activeColor: '#99A9BF',

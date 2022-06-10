@@ -132,6 +132,7 @@ export default {
 }
 .sidebar-info-content h4 {
   padding: 0 .5rem;
+  word-break: break-all;
 }
 .sidebar-info-content2 {
   display: flex;
@@ -141,6 +142,10 @@ export default {
   width: 100%;
   flex-grow:1;
   flex-shrink:1;
+}
+.sidebar-info-content2 h4{
+  text-align: left;
+  word-break: break-all;
 }
 .sidebar-info-content2-list {
   display: flex;

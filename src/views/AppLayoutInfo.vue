@@ -117,9 +117,219 @@
         </div>
       </div>
     </div>
-    <div class="carousel">
+    <div class="stack">
+      <h2>技术
+        <strong>选型</strong>
+      </h2>
+      <hr>
+      <p>主要涉及web开发、全栈开发、虚拟化技术、微服务等</p>
       <div class="carousel-item">
         <Carousel />
+      </div>
+    </div>
+    <div id="project">
+      <h2>项目
+        <strong>经验</strong>
+      </h2>
+      <hr>
+      <p>工作年限较长，大大小小的项目参与的比较多，列举几个觉得比较有意义的项目做下简单介绍</p>
+      <div class="project-items">
+        <div class="pro-item">
+          <h3>个人网站项目</h3>
+          <h4>持续开发</h4>
+          <span>vuejs</span>
+          <span>element-ui</span>
+          <span>nodejs</span>
+          <span>golang</span>
+          <span>docker</span>
+          <span>nginx</span>
+          <span>docker</span>
+          <span>redis</span>
+          <span>mysql</span>
+          <div class="desc">
+            <i class="fa fa-star-o"></i>
+            一个个人网站，主要用于记录学习笔记、学习新技术、验证和巩固自己的技术栈；同时也把相关的前后端代码开源出来，希望能交到一些志同道合的朋友。
+          </div>
+          <p>
+            <i class="fa fa-hand-o-right"></i>
+            负责整个项目的方案设计、模块划分、开发、测试、部署等。项目分为前台页面、管理后台、nodejs中台服务、go服务，其中两个是前端工程和两个是后端工程。
+            <ul>
+              <li class="">
+                <a href="#.">
+                  前台页面: 分为首页、笔记、书签、简历等四个模块
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  管理后台: 统计展示一些站点数据，发布文章等
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  nodejs中台: 路由代理、接口加密、权限控制、服务端渲染等
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  go服务: 实际接口业务逻辑处理，数据库，文件存储等
+                </a>
+              </li>
+            </ul>
+          </p>
+          <p>
+            <i class="fa fa-hand-o-right"></i>
+            <a href="#.">
+              关于这个项目的的一些开发总结的文章可以看这里
+            </a>
+          </p>
+        </div>
+        <div class="pro-item">
+          <h3>个人网站项目</h3>
+          <h4>持续开发</h4>
+          <span>vuejs</span>
+          <span>element-ui</span>
+          <span>nodejs</span>
+          <span>golang</span>
+          <span>docker</span>
+          <span>nginx</span>
+          <span>docker</span>
+          <span>redis</span>
+          <span>mysql</span>
+          <div class="desc">
+            <i class="fa fa-star-o"></i>
+            一个个人网站，主要用于记录学习笔记、学习新技术、验证和巩固自己的技术栈；同时也把相关的前后端代码开源出来，希望能交到一些志同道合的朋友。
+          </div>
+          <p>
+            <i class="fa fa-hand-o-right"></i>
+            负责整个项目的方案设计、模块划分、开发、测试、部署等。项目分为前台页面、管理后台、nodejs中台服务、go服务，其中两个是前端工程和两个是后端工程。
+            <ul>
+              <li class="">
+                <a href="#.">
+                  前台页面: 分为首页、笔记、书签、简历等四个模块
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  管理后台: 统计展示一些站点数据，发布文章等
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  nodejs中台: 路由代理、接口加密、权限控制、服务端渲染等
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  go服务: 实际接口业务逻辑处理，数据库，文件存储等
+                </a>
+              </li>
+            </ul>
+          </p>
+          <p>
+            <i class="fa fa-hand-o-right"></i>
+            <a href="#.">
+              关于这个项目的的一些开发总结的文章可以看这里
+            </a>
+          </p>
+        </div>
+        <div class="pro-item">
+          <h3>个人网站项目</h3>
+          <h4>持续开发</h4>
+          <span>vuejs</span>
+          <span>element-ui</span>
+          <span>nodejs</span>
+          <span>golang</span>
+          <span>docker</span>
+          <span>nginx</span>
+          <span>docker</span>
+          <span>redis</span>
+          <span>mysql</span>
+          <div class="desc">
+            <i class="fa fa-star-o"></i>
+            一个个人网站，主要用于记录学习笔记、学习新技术、验证和巩固自己的技术栈；同时也把相关的前后端代码开源出来，希望能交到一些志同道合的朋友。
+          </div>
+          <p>
+            <i class="fa fa-hand-o-right"></i>
+            负责整个项目的方案设计、模块划分、开发、测试、部署等。项目分为前台页面、管理后台、nodejs中台服务、go服务，其中两个是前端工程和两个是后端工程。
+            <ul>
+              <li class="">
+                <a href="#.">
+                  前台页面: 分为首页、笔记、书签、简历等四个模块
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  管理后台: 统计展示一些站点数据，发布文章等
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  nodejs中台: 路由代理、接口加密、权限控制、服务端渲染等
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  go服务: 实际接口业务逻辑处理，数据库，文件存储等
+                </a>
+              </li>
+            </ul>
+          </p>
+          <p>
+            <i class="fa fa-hand-o-right"></i>
+            <a href="#.">
+              关于这个项目的的一些开发总结的文章可以看这里
+            </a>
+          </p>
+        </div>
+        <div class="pro-item">
+          <h3>个人网站项目</h3>
+          <h4>持续开发</h4>
+          <span>vuejs</span>
+          <span>element-ui</span>
+          <span>nodejs</span>
+          <span>golang</span>
+          <span>docker</span>
+          <span>nginx</span>
+          <span>docker</span>
+          <span>redis</span>
+          <span>mysql</span>
+          <div class="desc">
+            <i class="fa fa-star-o"></i>
+            一个个人网站，主要用于记录学习笔记、学习新技术、验证和巩固自己的技术栈；同时也把相关的前后端代码开源出来，希望能交到一些志同道合的朋友。
+          </div>
+          <p>
+            <i class="fa fa-hand-o-right"></i>
+            负责整个项目的方案设计、模块划分、开发、测试、部署等。项目分为前台页面、管理后台、nodejs中台服务、go服务，其中两个是前端工程和两个是后端工程。
+            <ul>
+              <li class="">
+                <a href="#.">
+                  前台页面: 分为首页、笔记、书签、简历等四个模块
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  管理后台: 统计展示一些站点数据，发布文章等
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  nodejs中台: 路由代理、接口加密、权限控制、服务端渲染等
+                </a>
+              </li>
+              <li href="#." class="">
+                <a href="#.">
+                  go服务: 实际接口业务逻辑处理，数据库，文件存储等
+                </a>
+              </li>
+            </ul>
+          </p>
+          <p>
+            <i class="fa fa-hand-o-right"></i>
+            <a href="#.">
+              关于这个项目的的一些开发总结的文章可以看这里
+            </a>
+          </p>
+        </div>
       </div>
     </div>
 
