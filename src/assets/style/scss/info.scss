@@ -120,7 +120,7 @@
   }
 }
 
-.stack {
+#stack {
   background: linear-gradient(180deg,#fff 0,#47729e);
   margin: 0;
   padding: 0 50px 50px 50px;
@@ -178,6 +178,7 @@
       font-size: 150%;
       min-width: 300px;
       max-width: 400px;
+      height: 520px;
       background-color: #fff;
       border: .5px;
       border-radius: 5px;
@@ -233,6 +234,41 @@
         font-size: 14px;
         font-family: microsoft yahei,sans-serif;
       }
+    }
+  }
+}
+
+#evaluation {
+  height: 750px;
+  .evaluation-bg {
+    background: url('../assets/images/evaluation.jpg');
+    height: 750px;
+    opacity: 1;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    filter: brightness(0.6); //设置亮度值，范围：0-1
+    z-index: -1
+  }
+  > h2 {
+    color: #fff;
+    font-size: 30px;
+  }
+  > hr {
+    margin-bottom: 10px;
+  }
+  .evaluation-item {
+    max-width: 750px;
+    margin: 5px auto;
+    padding: 10px 0;
+    text-align: center;
+    p {
+      font-weight: 500;
+      margin: 20px 0;
+      font-size: 20px;
+      line-height: 40px;
+      color: #ddd;
     }
   }
 }
