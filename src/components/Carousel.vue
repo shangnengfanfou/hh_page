@@ -1,6 +1,6 @@
 <template>
 	<carousel-3d :width="650" :height="350" :space='500' :perspective='15' 
-    :animationSpeed='500' :autoplay="true" :autoplay-timeout="5000" 
+    :animationSpeed='500' :autoplay="true" :autoplay-timeout="3000" 
     :display="3" :controls-visible="true" :border="0"
     :controls-prev-html="'&#10092; '" :controls-next-html="'&#10093;'" 
     :controls-width="30" :controls-height="60" :clickable="true"

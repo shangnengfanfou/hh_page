@@ -4,17 +4,20 @@
     <AppLayout>
       <router-view/>
     </AppLayout>
+    <Footer />
   </div>
 </template>
 
 <script>
 import AppLayout from "@/components/layouts/AppLayout.vue"
 import Header from "@/components/Header.vue"
+import Footer from "@/components/Footer.vue"
 export default {
   name: 'App',
   components: {
     AppLayout,
     Header,
+    Footer,
   }
 }
 </script>
