@@ -39,6 +39,7 @@ export default {
     background-color: #e0e0e0;
     order: 2;
     flex: 4;
+    min-height: 1000px;
   }
   .line2 {
     margin: .3rem;
