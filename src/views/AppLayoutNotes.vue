@@ -17,6 +17,10 @@ export default {
   components: {
     SideBar,
     Content
+  },
+  data() {
+    return {
+    }
   }
 }
 </script>

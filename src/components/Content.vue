@@ -1,7 +1,10 @@
 <template>
   <div class="row">
-    <div class="row1">
+    <div class="row1" v-if="!isList">
       <ContentCard v-for="(item, index) in contentData" :key="index" :data="item" :contentVisible="true" class="row1-resize"/>
+    </div>
+    <div class="row1" v-if="isList">
+      <v-md-editor :value="markdown" mode="preview" class="row1-content"></v-md-editor>
     </div>
     <div class="row2">
       <div class="content-visited">
@@ -14,7 +17,7 @@
 
 <script>
 import ContentCard from "@/components/ContentCard"
-// import ContentVisited from "@/components/ContentVisited"
+import {request, METHOD} from '../utils/request'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Content",
@@ -22,9 +25,18 @@ export default {
     ContentCard,
     // ContentVisited
   },
+  created() {
+    console.log(this.$route.path)
+    request('/api/article/123456', METHOD.GET)
+    .then(resp => {
+      const { content } = resp.data
+      this.markdown = Buffer.from(content, 'base64').toString()
+    })
+  },
   data() {
     return {
-      contentVisible: true,
+      isList: true,
+      markdown: '',
       contentData: [
         {
           pic: "https://cdn-images-1.medium.com/max/2560/1*szP5mmBU8NjkLbO2HE3bJw.png",
@@ -116,7 +128,11 @@ export default {
   min-width: 300px;
   width: 38rem;
   max-width: 70%;
+  min-height: 1000px;
   flex: 2;
+}
+.row1-content {
+  text-align: start;
 }
 .row2 {
   min-width: 300px;
