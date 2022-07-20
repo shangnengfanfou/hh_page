@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="#.">
+    <a :href="data.href||'.#'" target="_blank">
       <div id="content">
         <div class="card-image">
             <img :src="data.pic"

@@ -7,13 +7,14 @@
       </h2>
       <div>
         <div v-for="(item, index) in article" :key="index">
-          <a :href="item.url" target="_blank">
+          <a :href="item.url" target="_blank" class="title-hover">
             <img :src="item.img" :alt="item.desc" />
+            <h2>{{item.title}}</h2>
             <p>{{item.desc}}</p>
           </a>
         </div>
       </div>
-      <router-link to="/" class="button-all button">
+      <router-link to="/notes" class="button-all button">
         全部文章&nbsp;&gt;
       </router-link>
     </div>
@@ -30,10 +31,10 @@
             <p>包括本项目在内的一些个人项目和想法，有用或者没用，但重在成长</p>
             <ul>
               <li>
-                <a href="https://github.com/shangnengfanfou">&nbsp;&nbsp;&nbsp;&nbsp;Github地址</a>
+                <a href="https://github.com/shangnengfanfou" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;Github地址</a>
               </li>
               <li>
-                <a href="https://gitee.com/haoqian1">&nbsp;&nbsp;&nbsp;&nbsp;Gitee地址</a>
+                <a href="https://gitee.com/haoqian1" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;Gitee地址</a>
               </li>
             </ul>
           </div>
@@ -54,7 +55,7 @@
           </div>
           <div class="contact-msg">
             <h2>
-              <router-link to="/contacts" class="contact-info-link">
+              <router-link to="/info" class="contact-info-link">
                 交流&求职-我的简历请点&nbsp;&gt;
               </router-link>
             </h2>
@@ -85,52 +86,35 @@
 
 <script>
 import Banner from "@/components/Banner"
+import {request, METHOD} from '../utils/request'
 export default {
   name: 'AppLayoutAbout',
   components: {
     Banner
   },
+  created() {
+    request('/api/article/page', METHOD.POST, {
+      pageIndex: 1,
+      pageSize: 6
+    })
+    .then(resp => {
+      const { data } = resp.data
+      const ret = data.data 
+      this.article = ret.map(v => ({
+        img: v.bannerUrl,
+        title: v.title,
+        desc: v.summary.substring(0, 100) + '...',
+        time: new Date(v.time * 1000).toLocaleDateString(),
+        id: v.id,
+        uniqueId: v.uniqueId,
+        url: `/notes/${new Date(v.time * 1000).getFullYear()}-${new Date(v.time * 1000).getMonth() + 1}/${v.uniqueId}/${v.title}.html`
+      }))
+    })
+  },
   data() {
     return {
       timer: null,
-      article: [
-        {
-          id: 1,
-          img: require('../assets/images/article/article1.jpg'),
-          desc: 'goku',
-          url: 'http://www.baidu.com'
-        },
-        {
-          id: 2,
-          img: require('../assets/images/article/article2.jpg'),
-          desc: 'rufi',
-          url: 'http://www.baidu.com'
-        },
-        {
-          id: 3,
-          img: require('../assets/images/article/article3.jpg'),
-          desc: 'goku-s4',
-          url: 'http://www.baidu.com'
-        },
-        {
-          id: 4,
-          img: require('../assets/images/article/article4.jpg'),
-          desc: 'pikachu',
-          url: 'http://www.baidu.com'
-        },
-        {
-          id: 5,
-          img: require('../assets/images/article/article5.jpg'),
-          desc: 'itachi',
-          url: 'http://www.baidu.com'
-        },
-        {
-          id: 6,
-          img: require('../assets/images/article/article6.jpg'),
-          desc: 'death',
-          url: 'http://www.baidu.com'
-        }
-      ]
+      article: []
     }
   },
 }

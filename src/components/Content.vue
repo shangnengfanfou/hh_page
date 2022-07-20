@@ -26,27 +26,35 @@ export default {
     // ContentVisited
   },
   created() {
-    console.log(this.$route.path)
-    request('/api/article/123456', METHOD.GET)
-    .then(resp => {
-      const { content } = resp.data
-      this.markdown = Buffer.from(content, 'base64').toString()
-    })
-    request('/api/article/page', METHOD.POST, {
-      pageIndex: 1,
-      pageSize: 10
-    })
-    .then(resp => {
-      const { data } = resp.data
-      console.log(data)
-      const ret = data.data 
-      this.contentData = ret.map(v => ({
-        pic: v.bannerUrl,
-        title: v.title,
-        content: v.summary,
-        time: new Date(v.time * 1000).toLocaleDateString()
-      }))
-    })
+    const articleParams =this.$route.params.articleParams
+    console.log('222:', articleParams)
+    if (articleParams && articleParams.split('/').length === 3) {
+      const articleParamsArr = articleParams.split('/')
+      this.isList = false
+      request(`/api/article/${articleParamsArr[1]}?filename=${decodeURI(articleParamsArr[2])}&time=${articleParamsArr[0]}`, METHOD.GET)
+      .then(resp => {
+        const { content } = resp.data
+        this.markdown = Buffer.from(content, 'base64').toString()
+      })
+    } else {
+      request('/api/article/page', METHOD.POST, {
+        pageIndex: 1,
+        pageSize: 10
+      })
+      .then(resp => {
+        const { data } = resp.data
+        const ret = data.data 
+        this.contentData = ret.map(v => ({
+          pic: v.bannerUrl,
+          title: v.title,
+          content: v.summary,
+          time: new Date(v.time * 1000).toLocaleDateString(),
+          id: v.id,
+          uniqueId: v.uniqueId,
+          href: `/notes/${new Date(v.time * 1000).getFullYear()}-${new Date(v.time * 1000).getMonth() + 1}/${v.uniqueId}/${v.title}.html`
+        }))
+      })
+    }
   },
   data() {
     return {

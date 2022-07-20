@@ -12,7 +12,7 @@ const routes = [
     }
   },
   { 
-    path: '/notes',
+    path: '/notes/:articleParams*',
     name: 'Notes',
     meta: {
       layout: 'AppLayoutNotes'
@@ -37,7 +37,13 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: '/',
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+        return savedPosition
+    }
+    return {x: 0, y: 0}
+  }
 })
 
 export default router
