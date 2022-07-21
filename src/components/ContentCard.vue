@@ -41,10 +41,10 @@ export default {
           type: Object,
           default: function () {
               return {
-                  pic: "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a6afead4d06476ea5eff748cc9a5dc2~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?",
-                  time: '2022年 04月 01日',
-                  title: '程序员常用网站',
-                  content: '2022你需要了解的程序员网站如下：https://www.google.com、https://www.bing.cn、https://www.stackoverflow.com、https://www.baidu.com'
+                  pic: "",
+                  time: '',
+                  title: '',
+                  content: ''
               }
           }
       },
@@ -108,6 +108,7 @@ export default {
 }
 .card-title, .card-excerpt {
     font-family: 'Playfair Display', serif;
+    overflow:hidden;
 }
 .card-date, .card-title {
     text-align:center;

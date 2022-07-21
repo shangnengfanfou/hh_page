@@ -2,6 +2,7 @@
   <div class="row">
     <div class="row1" v-if="isList">
       <ContentCard v-for="(item, index) in contentData" :key="index" :data="item" :contentVisible="true" class="row1-resize"/>
+      <Paginate :pageConfig="pageConfig" @changeCurrentPage="changeCurrentPage"></Paginate>
     </div>
     <div class="row1" v-if="!isList">
       <v-md-editor :value="markdown" mode="preview" class="row1-content"></v-md-editor>
@@ -17,13 +18,14 @@
 
 <script>
 import ContentCard from "@/components/ContentCard"
+import Paginate from "@/components/Paginate"
 import {request, METHOD} from '../utils/request'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Content",
   components: {
     ContentCard,
-    // ContentVisited
+    Paginate
   },
   created() {
     const articleParams =this.$route.params.articleParams
@@ -37,10 +39,14 @@ export default {
         this.markdown = Buffer.from(content, 'base64').toString()
       })
     } else {
-      request('/api/article/page', METHOD.POST, {
+      const body = {
         pageIndex: 1,
         pageSize: 10
-      })
+      }
+      if(parseInt(articleParams)) {
+        body.tagId = parseInt(articleParams)
+      }
+      request('/api/article/page', METHOD.POST, body)
       .then(resp => {
         const { data } = resp.data
         const ret = data.data 
@@ -53,46 +59,81 @@ export default {
           uniqueId: v.uniqueId,
           href: `/notes/${new Date(v.time * 1000).getFullYear()}-${new Date(v.time * 1000).getMonth() + 1}/${v.uniqueId}/${v.title}.html`
         }))
+        this.pageConfig = {
+          pageSize: body.pageSize,
+          pageIndex: body.pageIndex,
+          total: data.count,
+          pageTotal: Math.ceil(data.count / body.pageSize)
+        }
+        console.log('this.pageConfig', this.pageConfig, ret)
       })
     }
+    request('/api/article/page', METHOD.POST, {
+      pageIndex: 1,
+      pageSize: 5,
+      viewsCount: true
+    })
+    .then(resp => {
+      const { data } = resp.data
+      const ret = data.data 
+      this.visitedData = ret.map(v => ({
+        pic: v.bannerUrl,
+        title: v.title,
+        content: v.summary,
+        time: new Date(v.time * 1000).toLocaleDateString(),
+        id: v.id,
+        uniqueId: v.uniqueId,
+        href: `/notes/${new Date(v.time * 1000).getFullYear()}-${new Date(v.time * 1000).getMonth() + 1}/${v.uniqueId}/${v.title}.html`
+      }))
+    })
   },
   data() {
     return {
       isList: true,
       markdown: '',
       contentData: [],
-      visitedData: [
-        {
-          pic: "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bdc70f186bb4f6f808f5e42c7b133af~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?",
-          time: '2022年 04月 08日',
-          title: 'ts保姆级教程',
-          content: 'TypeScript，简称 ts，是微软开发的一种静态的编程语言，它是 JavaScript 的超集。 那么它有什么特别之处呢?'
-        },
-        {
-          pic: "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42f6ad7187af4cfaae73bf112aa29ecf~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?",
-          time: '2022年 04月 07日',
-          title: '前端配置化真香',
-          content: '本文从 场景介绍 、 设计&实现 、 性能优化 三个部分进行讲解。笔者当时的技术栈是 vue2 + element-ui，文章案例也是（其实大家不必纠结于技术栈，掌握设计的思路和理念，什么框架都是一样的）'
-        },
-        {
-          pic: "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad18a40559f74554baff60c9b7f022b8~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?",
-          time: '2022年 04月 06日',
-          title: '代码越写越乱？那是因为你没用责任链',
-          content: '在开始学习责任链之前，先看一下在开发中常见的问题。下面是前端用来处理 API 错误码的代码：'
-        },
-        {
-          pic: "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59443e9c4191457d9184c46718624e17~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?",
-          time: '2022年 04月 05日',
-          title: '前端 Vscode 插件推荐',
-          content: 'VScode 对于前端同学来说绝对是非常熟悉的，大家多多少少都有几个自己非常中意的插件。最近经过自己的探索以及同事的推荐，结合实际开发，甄选出了几款对实际开发效率非常有帮助的 VScode 插件。'
-        },
-        {
-          pic: "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a6afead4d06476ea5eff748cc9a5dc2~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?",
-          time: '2022年 04月 01日',
-          title: '程序员常用网站',
-          content: '2022你需要了解的程序员网站如下：https://www.google.com、https://www.bing.cn、https://www.stackoverflow.com、https://www.baidu.com'
+      visitedData: [],
+      pageConfig:{
+        pageSize: 10,
+        pageIndex: 0,
+        total: 0,
+        pageTotal: 0
+      }
+    }
+  },
+  methods: {
+    changeCurrentPage(currentPage) {
+      if(currentPage != this.pageConfig.pageIndex) {
+        const body = {
+          pageIndex: currentPage,
+          pageSize: 10
         }
-      ]
+        const articleParams =this.$route.params.articleParams
+        if(parseInt(articleParams)) {
+          body.tagId = parseInt(articleParams)
+        }
+        request('/api/article/page', METHOD.POST, body)
+        .then(resp => {
+          const { data } = resp.data
+          const ret = data.data 
+          this.contentData = ret.map(v => ({
+            pic: v.bannerUrl,
+            title: v.title,
+            content: v.summary,
+            time: new Date(v.time * 1000).toLocaleDateString(),
+            id: v.id,
+            uniqueId: v.uniqueId,
+            href: `/notes/${new Date(v.time * 1000).getFullYear()}-${new Date(v.time * 1000).getMonth() + 1}/${v.uniqueId}/${v.title}.html`
+          }))
+          this.pageConfig = {
+            pageSize: body.pageSize,
+            pageIndex: body.pageIndex,
+            total: data.count,
+            pageTotal: Math.ceil(data.count / body.pageSize)
+          }
+          console.log('this.pageConfig', this.pageConfig, ret)
+        })
+      }
     }
   }
 }

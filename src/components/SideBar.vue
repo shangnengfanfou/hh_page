@@ -20,9 +20,11 @@
         <div class="sidebar-info-content2-list">
           <p style="font-size:12px;margin:5px 5px 15px 5px;">白杨亦萧萧-文章分类</p>
         </div>
-        <router-link v-for="(item, index) in articleInfo" :key="index" :to="'/#/'+item.type" class="sidebar-info-content2-list">
-          <h4 style="font-size:15px;margin:5px 5px 5px 15px;">{{item.name}}</h4>
-          <p>{{item.count}}</p>
+        <router-link v-for="(item, index) in articleInfo" :key="index" :to="'/notes/'+item.index" class="sidebar-info-content2-classify">
+          <div class="sidebar-info-content2-classify-item">
+            <span style="font-weight:600">{{item.name}}</span>
+            <span style="background-color:#F7F7F7">{{item.count}}</span>
+          </div>
         </router-link>
       </div>      
     </div>
@@ -30,72 +32,79 @@
 </template>
 
 <script>
+import {request, METHOD} from '../utils/request'
+const articleTags = [
+        {
+          index: 1,
+          name: '前端开发笔记'
+        },
+        {
+          index: 2,
+          name: '后端开发笔记-nodejs'
+        },
+        {
+          index: 3,
+          name: '后端开发笔记-其他'
+        },
+        {
+          index: 4,
+          name: '数据库'
+        },
+        {
+          index: 5,
+          name: 'redis'
+        },
+        {
+          index: 6,
+          name: '算法笔记'
+        },
+        {
+          index: 7,
+          name: '运维相关'
+        },
+        {
+          index: 8,
+          name: '其他'
+        }
+      ]
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "SideBar",
-  data() {
-    return {
-      siteInfo: [
+  created() {
+    request('/api/article/info', METHOD.GET)
+    .then(resp => {
+      const { data } = resp.data
+      console.log('data', data)
+      this.siteInfo = [
         {
           id: 1,
           name: '总文章',
-          count: 100
+          count: data.count
         },
         {
           id: 2,
           name: '最新文章',
-          count: 10
+          count: data.currCount
         },
         {
           id: 3,
           name: '浏览量',
-          count: '10w'
-        }
-      ],
-      articleInfo: [
-        {
-          id: 1,
-          type: 'frontend',
-          name: '前端开发笔记',
-          count: 10
-        },
-        {
-          id: 2,
-          type: 'backend',
-          name: '后端开发笔记-nodejs',
-          count: 10
-        },
-        {
-          id: 3,
-          type: 'database',
-          name: '数据库',
-          count: 10
-        },
-        {
-          id: 4,
-          type: 'redis',
-          name: 'redis',
-          count: 10
-        },
-        {
-          id: 5,
-          type: 'algorithm',
-          name: '算法笔记',
-          count: 10
-        },
-        {
-          id: 6,
-          type: 'operation',
-          name: '运维相关',
-          count: 10
-        },
-        {
-          id: 7,
-          type: 'other',
-          name: '其他',
-          count: 10
+          count: data.viewsCount
         }
       ]
+      this.articleInfo = data.tagsCount.map(v => {
+        const tag = articleTags.find(i => i.index == v.tagId)
+        return { 
+          ...tag,
+          count: v.count
+        }
+      })
+    })
+  },
+  data() {
+    return {
+      siteInfo: [],
+      articleInfo: []
     }
   }
 }
@@ -155,7 +164,19 @@ export default {
 }
 .sidebar-info-content2-list p {
   background-color: #F7F7F7;  
-  font: 1rem sans-serif;
+  font: 1.2rem sans-serif;
   margin: 2px;
+}
+.sidebar-info-content2-classify {
+  text-align: start;
+}
+.sidebar-info-content2-classify-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sidebar-info-content2-classify-item span {
+  font-size: 1.1rem;
+  padding: 3px;
 }
 </style>

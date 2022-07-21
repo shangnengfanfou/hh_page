@@ -7,9 +7,8 @@
       </h2>
       <div>
         <div v-for="(item, index) in article" :key="index">
-          <a :href="item.url" target="_blank" class="title-hover">
+          <a :href="item.url" target="_blank">
             <img :src="item.img" :alt="item.desc" />
-            <h2>{{item.title}}</h2>
             <p>{{item.desc}}</p>
           </a>
         </div>
@@ -103,7 +102,7 @@ export default {
       this.article = ret.map(v => ({
         img: v.bannerUrl,
         title: v.title,
-        desc: v.summary.substring(0, 100) + '...',
+        desc: v.summary.substring(0, 50) + '...',
         time: new Date(v.time * 1000).toLocaleDateString(),
         id: v.id,
         uniqueId: v.uniqueId,

@@ -31,9 +31,8 @@ export default {
 #header {
   background: rgb(227, 233, 235);
   padding: 3px;
-  max-height: 50px;
-  min-height: 2.5rem;
   display: flex;
+  min-height: 5vh;
   justify-content: center; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
 }

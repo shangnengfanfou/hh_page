@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header />
-    <AppLayout>
+    <Header/>
+    <AppLayout id="main">
       <router-view/>
     </AppLayout>
     <Footer />
@@ -30,11 +30,8 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-.header {
-    height: 5rem;
-    background-color: green;
-}
-.app-layout {
-  max-width: 1280px;
+#main {
+  min-height: 90vh;
+  min-width: 800px;
 }
 </style>
