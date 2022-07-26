@@ -7,7 +7,7 @@ axios.defaults.withCredentials= true
 axios.interceptors.request.use(
   config => {
     console.log('curr config.url: ', config.url)
-    config.baseURL = config.url.startsWith('/api') ? '/20220630' : process.env.VUE_APP_API_BASE_URL
+    config.baseURL = 'http://blog.haoqian.icu'
     return config
   }
 )

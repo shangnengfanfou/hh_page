@@ -11,7 +11,7 @@
       <router-link to="/info" class="header-item">我的信息</router-link>
     </div>
     <div id="header-right">
-      <a href="/platform">
+      <a href="/admin">
         管理后台
       </a>
     </div>

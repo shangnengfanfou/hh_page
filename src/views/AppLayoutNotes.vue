@@ -32,7 +32,7 @@ export default {
     margin: 0 auto;
     padding: .3rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
   .line1 {
     margin: .3rem;
